@@ -18,7 +18,7 @@ Requires Java 7
 
 Clone the sourcecode.
 
-File > Import Project... > Select "/extintor-android/settings.gradle"
+File > Import Project... > Select "/giraff-android/settings.gradle"
 
 Click the green Run button
 
@@ -28,7 +28,7 @@ Click the green Run button
 
 Clone the sourcecode.
 
-    cd extintor-android
+    cd giraff-android
     ./gradlew assembleDebug
 
 ### How Assembly Works
