@@ -1,4 +1,4 @@
-package assembly.extintor;
+package assembly.giraff;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

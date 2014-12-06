@@ -1,4 +1,4 @@
-package assembly.extintor;
+package assembly.giraff;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
