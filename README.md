@@ -6,9 +6,9 @@ This is a product being built by the Assembly community. You can help push this 
 
 ## Getting started
 
-Currently requires the latest Canary build of Android Studio.
+Currently requires the latest build of Android Studio.
 
-To get started download Android Studio from [here](http://tools.android.com/download/studio/canary/latest) and setup the [Android SDK](http://developer.android.com/sdk/index.html).
+To get started download Android Studio from [here](http://developer.android.com/sdk/index.html) and setup the Android SDK.
 
 ## Building
 
