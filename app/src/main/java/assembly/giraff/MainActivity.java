@@ -7,13 +7,11 @@ import android.content.res.Resources;
 
 import com.andtinder.model.CardModel;
 import com.andtinder.view.CardContainer;
-import com.felipecsl.gifimageview.library.GifImageView;
 
 
 public class MainActivity extends ActionBarActivity {
 
     private CardContainer mCardContainer;
-    private GifImageView gifImageView;
     private static final String TAG = "MainActivity";
 
 
@@ -29,7 +27,6 @@ public class MainActivity extends ActionBarActivity {
         CustomAdapter adapter = new CustomAdapter(this);
 
         adapter.add(new CardModel("Title1", "Description goes here", r.getDrawable(R.drawable.picture1)));
-        adapter.add(new CardModel("Title2", "Description goes here", r.getDrawable(R.drawable.picture2)));
 
         CardModel cardModel = new CardModel("Title1", "Description goes here", r.getDrawable(R.drawable.picture1));
         cardModel.setOnClickListener(new CardModel.OnClickListener() {

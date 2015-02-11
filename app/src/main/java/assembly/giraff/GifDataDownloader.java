@@ -24,8 +24,6 @@ public class GifDataDownloader extends AsyncTask<String, Void, byte[]> {
 
         byte[] gif = null;
         try {
-            Log.e(TAG, "try  onnnnn >>" + gifUrl);
-
             gif = ByteArrayHttpClient.get(gifUrl);
         } catch (Exception e) {
             Log.e(TAG, "GifDecode OOM: " + gifUrl, e);
