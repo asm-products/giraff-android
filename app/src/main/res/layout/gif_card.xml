@@ -27,6 +27,17 @@
         android:background="@color/card_outline"
         />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:layout_below="@id/divider_title"
+        android:layout_alignWithParentIfMissing="true"
+        android:src="@drawable/ic_launcher"
+        android:id="@+id/image_gif"
+        />
+
+<!--
 
     <com.felipecsl.gifimageview.library.GifImageView
         android:id="@+id/image_gif"
@@ -36,6 +47,7 @@
         android:layout_below="@id/divider_title"
         android:layout_alignWithParentIfMissing="true"
         />
+-->
 
     <View
         android:id="@+id/divider_bottom"
