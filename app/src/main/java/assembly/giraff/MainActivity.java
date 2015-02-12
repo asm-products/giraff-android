@@ -15,7 +15,6 @@ import assembly.giraff.andtinder.model.CardModel;
 import assembly.giraff.andtinder.view.CardContainer;
 import assembly.giraff.model.CustomCardModel;
 
-
 public class MainActivity extends FragmentActivity {
 
     private MainFragment mainFragment;

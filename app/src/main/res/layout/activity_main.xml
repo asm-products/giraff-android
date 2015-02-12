@@ -4,16 +4,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
-    <com.facebook.widget.LoginButton
-        android:id="@+id/authButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"/>
-    <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
     <assembly.giraff.andtinder.view.CardContainer
         android:id="@+id/layoutview"
         android:layout_width="fill_parent"
@@ -28,8 +18,6 @@
         android:id="@+id/imgx"
         android:layout_weight="0.5"/>
 -->
-
-
     <!-- <com.felipecsl.gifimageview.library.GifImageView
         android:id="@+id/image_gifc"
         android:layout_gravity="center"
@@ -43,6 +31,11 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         app:orientation="ordered"/> -->
-
+    <com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"/>
 </LinearLayout>
 
