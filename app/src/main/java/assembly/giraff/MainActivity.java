@@ -2,38 +2,64 @@ package assembly.giraff;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
+import android.content.res.Resources;
+
+import assembly.giraff.andtinder.model.CardModel;
+import assembly.giraff.andtinder.view.CardContainer;
+
+
+import java.util.ArrayList;
+
+import assembly.giraff.model.CustomCardModel;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    private CardContainer mCardContainer;
+    private static final String TAG = "MainActivity";
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
-    }
+
+        mCardContainer = (CardContainer) findViewById(R.id.layoutview);
+
+        Resources r = getResources();
+
+        ArrayList<Byte[]> mGifDataList = new ArrayList<>();
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+        CustomAdapter adapter = new CustomAdapter(this,mGifDataList);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        adapter.add(new CustomCardModel("Title1", "Descripti0on goes her0e  1", "http://gifs.joelglovier.com/accidents/wheelbarrel-dump.gif"));
+        adapter.add(new CustomCardModel("Title2", "Descr0iption goes her0e 2","http://gifs.joelglovier.com/fail/cat-fail.gif"));
+        adapter.add(new CustomCardModel("Title3", "Descripti0on goes here 3", "http://gifs.joelglovier.com/aha/aha.gif"));
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        CustomCardModel cardModel = new CustomCardModel("Title3", "Descripti0on goes here 3", "http://gifs.joelglovier.com/big-lebowski/no-huh-uh.gif");
+        cardModel.setOnClickListener(new CardModel.OnClickListener() {
+            @Override
+            public void OnClickListener() {
+                Log.i("Swipeable Cards","I am pressing the card");
+            }
+        });
 
-        return super.onOptionsItemSelected(item);
+        cardModel.setOnCardDimissedListener(new CardModel.OnCardDimissedListener() {
+            @Override
+            public void onLike() {
+                Log.i("Swipeable Cards","I like the card");
+            }
+
+            @Override
+            public void onDislike() {
+                Log.i("Swipeable Cards","I dislike the card");
+            }
+        });
+
+        adapter.add(cardModel);
+
+        mCardContainer.setAdapter(adapter);
     }
 }
