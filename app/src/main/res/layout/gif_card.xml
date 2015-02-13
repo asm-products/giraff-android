@@ -99,7 +99,7 @@
         android:layout_toLeftOf="@+id/btn_sep_2"
         android:background="?android:attr/selectableItemBackground"
         android:padding="10dp"
-        android:src="@drawable/camera"/>
+        android:src="@drawable/ic_launcher"/>
 
     <View
         android:id="@+id/btn_sep_2"
@@ -119,6 +119,6 @@
         android:layout_below="@id/image_gif"
         android:background="?android:attr/selectableItemBackground"
         android:padding="10dp"
-        android:src="@drawable/people"/>
+        android:src="@drawable/ic_launcher"/>
 
 </RelativeLayout>

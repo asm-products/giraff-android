@@ -4,28 +4,28 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.content.res.Resources;
-import android.widget.ImageView;
 
-import com.andtinder.model.CardModel;
-import com.andtinder.view.CardContainer;
-import com.koushikdutta.ion.Ion;
+import assembly.giraff.andtinder.model.CardModel;
+import assembly.giraff.andtinder.view.CardContainer;
+
 
 import java.util.ArrayList;
+
+import assembly.giraff.model.CustomCardModel;
 
 
 public class MainActivity extends ActionBarActivity {
 
     private CardContainer mCardContainer;
     private static final String TAG = "MainActivity";
-    ImageView mimageView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         mCardContainer = (CardContainer) findViewById(R.id.layoutview);
-        //mimageView = (ImageView) findViewById(R.id.imgx);
 
         Resources r = getResources();
 
@@ -34,11 +34,11 @@ public class MainActivity extends ActionBarActivity {
 
         CustomAdapter adapter = new CustomAdapter(this,mGifDataList);
 
-        adapter.add(new CardModel("Title1", "Descripti0on goes her0e", r.getDrawable(R.drawable.picture1)));
-        adapter.add(new CardModel("Title2", "Descr0iption goes her0e", r.getDrawable(R.drawable.picture1)));
-        adapter.add(new CardModel("Title3", "Descripti0on goes here", r.getDrawable(R.drawable.picture1)));
+        adapter.add(new CustomCardModel("Title1", "Descripti0on goes her0e  1", "http://gifs.joelglovier.com/accidents/wheelbarrel-dump.gif"));
+        adapter.add(new CustomCardModel("Title2", "Descr0iption goes her0e 2","http://gifs.joelglovier.com/fail/cat-fail.gif"));
+        adapter.add(new CustomCardModel("Title3", "Descripti0on goes here 3", "http://gifs.joelglovier.com/aha/aha.gif"));
 
-        CardModel cardModel = new CardModel("Title1", "Description goes here", r.getDrawable(R.drawable.picture1));
+        CustomCardModel cardModel = new CustomCardModel("Title3", "Descripti0on goes here 3", "http://gifs.joelglovier.com/big-lebowski/no-huh-uh.gif");
         cardModel.setOnClickListener(new CardModel.OnClickListener() {
             @Override
             public void OnClickListener() {
