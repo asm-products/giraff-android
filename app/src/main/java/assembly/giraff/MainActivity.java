@@ -1,9 +1,16 @@
 package assembly.giraff;
 
+import android.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.content.res.Resources;
+import assembly.giraff.andtinder.model.CardModel;
+import assembly.giraff.andtinder.view.CardContainer;
+import java.util.ArrayList;
+import assembly.giraff.model.CustomCardModel;
+
 
 import assembly.giraff.andtinder.model.CardModel;
 import assembly.giraff.andtinder.view.CardContainer;
@@ -14,7 +21,9 @@ import java.util.ArrayList;
 import assembly.giraff.model.CustomCardModel;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends FragmentActivity {
+
+    private MainFragment mainFragment;
 
     private CardContainer mCardContainer;
     private static final String TAG = "MainActivity";
@@ -22,8 +31,8 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
+
 
         mCardContainer = (CardContainer) findViewById(R.id.layoutview);
 
@@ -61,5 +70,11 @@ public class MainActivity extends ActionBarActivity {
         adapter.add(cardModel);
 
         mCardContainer.setAdapter(adapter);
+        if (savedInstanceState == null){
+            mainFragment = new MainFragment();
+            getSupportFragmentManager().beginTransaction().add(android.R.id.content, mainFragment).commit();
+        }else {
+            mainFragment = (MainFragment) getSupportFragmentManager().findFragmentById(android.R.id.content);
+        }
     }
 }
