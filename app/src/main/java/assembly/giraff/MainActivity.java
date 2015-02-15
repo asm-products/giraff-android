@@ -1,20 +1,23 @@
 package assembly.giraff;
 
+import android.app.Fragment;
+import android.content.res.Resources;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.content.res.Resources;
-
-import assembly.giraff.andtinder.model.CardModel;
-import assembly.giraff.andtinder.view.CardContainer;
-
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 
+import assembly.giraff.andtinder.model.CardModel;
+import assembly.giraff.andtinder.view.CardContainer;
 import assembly.giraff.model.CustomCardModel;
 
+public class MainActivity extends FragmentActivity {
 
-public class MainActivity extends ActionBarActivity {
+    private MainFragment mainFragment;
 
     private CardContainer mCardContainer;
     private static final String TAG = "MainActivity";
@@ -22,8 +25,8 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
+
 
         mCardContainer = (CardContainer) findViewById(R.id.layoutview);
 
@@ -42,7 +45,7 @@ public class MainActivity extends ActionBarActivity {
         cardModel.setOnClickListener(new CardModel.OnClickListener() {
             @Override
             public void OnClickListener() {
-                Log.i("Swipeable Cards","I am pressing the card");
+                Log.i("Swipeable Cards", "I am pressing the card");
             }
         });
 
@@ -61,5 +64,12 @@ public class MainActivity extends ActionBarActivity {
         adapter.add(cardModel);
 
         mCardContainer.setAdapter(adapter);
+        
+        if (savedInstanceState == null){
+            mainFragment = new MainFragment();
+            getSupportFragmentManager().beginTransaction().add(android.R.id.content, mainFragment).commit();
+        }else {
+            mainFragment = (MainFragment) getSupportFragmentManager().findFragmentById(android.R.id.content);
+        }
     }
 }
