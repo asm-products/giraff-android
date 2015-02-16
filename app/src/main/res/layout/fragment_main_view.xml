@@ -5,7 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="assembly.giraff.MainActivity2">
+    tools:context="assembly.giraff.MainActivity">
 
     <LinearLayout
         android:id="@+id/container"
@@ -28,7 +28,7 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:name="assembly.giraff.MainViewFragment"
-            tools:layout="@layout/activity_main"/>
+            tools:layout="@layout/fragment_main_view"/>
     </LinearLayout>
 
     <fragment

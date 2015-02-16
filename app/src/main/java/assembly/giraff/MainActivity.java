@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import assembly.giraff.model.User;
 
 
-public class MainActivity2 extends BaseActivity
+public class MainActivity extends BaseActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         NavigationDrawerFragment.NavigationDrawerData {
 
@@ -24,9 +24,9 @@ public class MainActivity2 extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_activity2);
+        setContentView(R.layout.fragment_main_view);
 
-         //set custom toolbar 
+         //set custom toolbar
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
             setSupportActionBar(mToolbar);
@@ -39,9 +39,6 @@ public class MainActivity2 extends BaseActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-
-      //  mainFragment = new MainFragment();
-        //getSupportFragmentManager().beginTransaction().add(R.id.mainfrag, mainFragment).commit();
     }
 
     @Override

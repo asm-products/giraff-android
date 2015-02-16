@@ -3,13 +3,11 @@ package assembly.giraff;
 import android.app.Activity;
 import android.content.Context;
 
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import assembly.giraff.model.User;
 
@@ -29,7 +27,7 @@ public class NavigationDrawerListAdapter extends ArrayAdapter<String> {
                     .LAYOUT_INFLATER_SERVICE);
             switch (position % 2) {
                 case 0:
-                    convertView = inflater.inflate(R.layout.navigation_drawer_user_card, parent,
+                    convertView = inflater.inflate(R.layout.navigation_drawer_upgrade, parent,
                             false);
                     break;
                 case 1:
