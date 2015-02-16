@@ -1,38 +1,43 @@
 package assembly.giraff;
 
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.content.res.Resources;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import assembly.giraff.andtinder.model.CardModel;
 import assembly.giraff.andtinder.view.CardContainer;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import assembly.giraff.model.CustomCardModel;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainViewFragment extends Fragment {
 
     private CardContainer mCardContainer;
     private static final String TAG = "MainActivity";
 
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        setContentView(R.layout.activity_main);
+        View rootView = inflater.inflate(R.layout.activity_main, container, false);
 
-        mCardContainer = (CardContainer) findViewById(R.id.layoutview);
+        mCardContainer = (CardContainer) rootView.findViewById(R.id.layoutview);
 
         Resources r = getResources();
 
         ArrayList<Byte[]> mGifDataList = new ArrayList<>();
 
 
-        CustomAdapter adapter = new CustomAdapter(this,mGifDataList);
+        CustomAdapter adapter = new CustomAdapter(getActivity(),mGifDataList);
 
         adapter.add(new CustomCardModel("Title1", "Descripti0on goes her0e  1", "http://gifs.joelglovier.com/accidents/wheelbarrel-dump.gif"));
         adapter.add(new CustomCardModel("Title2", "Descr0iption goes her0e 2","http://gifs.joelglovier.com/fail/cat-fail.gif"));
@@ -61,5 +66,8 @@ public class MainActivity extends ActionBarActivity {
         adapter.add(cardModel);
 
         mCardContainer.setAdapter(adapter);
+
+        return rootView;
     }
+
 }

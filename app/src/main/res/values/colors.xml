@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="primary_light_red">#EB393B</color>
+    <color name="primary_dark_red">#E5282D</color>
+    <color name="section_light_grey">#EEEEEE</color>
+    <color name="white">#FFFFFF</color>
+    <color name="navbar_off_white">#FAFAFA</color>
+    <color name="line_divider_grey">#aaaaaa</color>
     <color name="card_bg">#EBEBEB</color>
     <color name="card_outline">#D0D0CE</color>
+    <color name="gold">#E8C247</color>
+    <color name="black">#000000</color>
+
 </resources>
