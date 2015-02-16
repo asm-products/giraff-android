@@ -26,7 +26,7 @@ public class MainActivity2 extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2);
 
-         //set custom toolbar
+         //set custom toolbar 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
             setSupportActionBar(mToolbar);
