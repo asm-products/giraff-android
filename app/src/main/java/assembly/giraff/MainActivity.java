@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity
     private Toolbar mToolbar;
     private User mCurrentUser;
     private CharSequence mTitle;
-    private FacebookFragment facebookFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,18 +42,7 @@ public class MainActivity extends BaseActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-        if (savedInstanceState == null) {
-            // Add the fragment on initial activity setup
-            facebookFragment = new FacebookFragment();
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(android.R.id.content, facebookFragment)
-                    .commit();
-        } else {
-            // Or set the fragment from restored state info
-            facebookFragment = (FacebookFragment) getSupportFragmentManager()
-                    .findFragmentById(android.R.id.content);
-        }
+
     }
 
     @Override
