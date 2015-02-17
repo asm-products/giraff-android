@@ -1,11 +1,13 @@
 package assembly.giraff;
 
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import assembly.giraff.facebook.FacebookFragment;
 import assembly.giraff.model.User;
 
 
@@ -20,6 +22,7 @@ public class MainActivity extends BaseActivity
     private Toolbar mToolbar;
     private User mCurrentUser;
     private CharSequence mTitle;
+    private FacebookFragment facebookFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,18 @@ public class MainActivity extends BaseActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+        if (savedInstanceState == null) {
+            // Add the fragment on initial activity setup
+            facebookFragment = new FacebookFragment();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(android.R.id.content, facebookFragment)
+                    .commit();
+        } else {
+            // Or set the fragment from restored state info
+            facebookFragment = (FacebookFragment) getSupportFragmentManager()
+                    .findFragmentById(android.R.id.content);
+        }
     }
 
     @Override
