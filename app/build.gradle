@@ -23,8 +23,9 @@ android {
         }
     }
 }
-
+repositories { mavenCentral() }
 dependencies {
+    compile 'com.facebook.android:facebook-android-sdk:3.21.1'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.2'
     compile 'uk.co.chrisjenx:calligraphy:2.0.0'

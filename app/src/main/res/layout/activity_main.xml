@@ -12,6 +12,7 @@
         android:layout_weight="0.5"/>
 
 
+
     <!-- <com.felipecsl.gifimageview.library.GifImageView
         android:id="@+id/image_gifc"
         android:layout_gravity="center"
