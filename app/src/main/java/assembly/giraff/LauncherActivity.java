@@ -1,41 +1,39 @@
 package assembly.giraff;
 
-import android.support.v4.app.FragmentActivity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-import assembly.giraff.facebook.FacebookFragment;
+import assembly.giraff.facebook.FacebookActivity;
 
 
-public class DevActivity extends FragmentActivity{
-
-    private FacebookFragment facebookFragment;
+public class LauncherActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (savedInstanceState == null) {
-            // Add the fragment on initial activity setup
-            facebookFragment = new FacebookFragment();
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(android.R.id.content, facebookFragment)
-                    .commit();
-        } else {
-            // Or set the fragment from restored state info
-            facebookFragment = (FacebookFragment) getSupportFragmentManager()
-                    .findFragmentById(android.R.id.content);
-        }
-        setContentView(R.layout.activity_dev);
+        setContentView(R.layout.activity_launcher);
+    }
+
+    public void facebook(View view){
+        Intent intent = new Intent(this, FacebookActivity.class);
+        startActivity(intent);
+    }
+
+    public void activity(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_dev, menu);
+        getMenuInflater().inflate(R.menu.menu_launcher, menu);
         return true;
     }
 
@@ -53,5 +51,4 @@ public class DevActivity extends FragmentActivity{
 
         return super.onOptionsItemSelected(item);
     }
-
 }

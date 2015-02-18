@@ -15,5 +15,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="facebook_app_id">1596426743920733</string>
     <string name="title_activity_dev">DevActivity</string>
+    <string name="title_activity_launcher">LauncherActivity</string>
 
 </resources>
