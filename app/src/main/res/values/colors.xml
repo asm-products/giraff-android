@@ -9,6 +9,7 @@
     <color name="card_bg">#EBEBEB</color>
     <color name="card_outline">#D0D0CE</color>
     <color name="gold">#E8C247</color>
+    <color name="gold_darker">#E8C247</color>
     <color name="black">#000000</color>
-
+    <color name="transparent">#00000000</color>
 </resources>

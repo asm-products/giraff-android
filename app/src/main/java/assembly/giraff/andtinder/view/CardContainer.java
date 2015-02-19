@@ -24,12 +24,11 @@ import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 
+import java.util.Random;
 
 import assembly.giraff.R;
 import assembly.giraff.andtinder.model.CardModel;
 import assembly.giraff.andtinder.model.Orientations.Orientation;
-
-import java.util.Random;
 
 public class CardContainer extends AdapterView<ListAdapter> {
 	public static final int INVALID_POINTER_ID = -1;
@@ -400,6 +399,14 @@ public class CardContainer extends AdapterView<ListAdapter> {
 	public void setGravity(int gravity) {
 		mGravity = gravity;
 	}
+
+    // TODO is it the correct way to get currently shown card?
+    public CardModel getCurrentCard(){
+        if (getAdapter() == null || getAdapter().getCount() == 0)
+            return null;
+
+        return (CardModel)getAdapter().getItem(0);
+    }
 
 	public static class LayoutParams extends ViewGroup.LayoutParams {
 
