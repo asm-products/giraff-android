@@ -13,10 +13,38 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="24dp"
-            android:src="@drawable/ic_settings_gold"
+            android:src="@drawable/ic_star_gold"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:id="@+id/progresslogo"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favorites"
+            android:textSize="18sp"
+            android:minHeight="36sp"
+            android:gravity="center"
+            android:id="@+id/favoritesbtn"
+            android:layout_marginLeft="70dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_settings_gold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/settingslogo"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"/>
 
@@ -27,7 +55,7 @@
             android:textSize="18sp"
             android:minHeight="36sp"
             android:gravity="center"
-            android:id="@+id/myprogressbutton"
+            android:id="@+id/settingsbtn"
             android:layout_marginLeft="70dp"
             android:layout_centerVertical="true"
             android:textColor="@color/white"/>

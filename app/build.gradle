@@ -32,4 +32,5 @@ dependencies {
     compile 'commons-io:commons-io:2.4'
     compile 'com.squareup.okhttp:okhttp:2.2.0'
     compile 'com.koushikdutta.ion:ion:2.+'
+    compile 'de.hdodenhof:circleimageview:1.2.1'
 }

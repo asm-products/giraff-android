@@ -29,7 +29,13 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main_view);
 
-         //set custom toolbar
+        if (getIntent().hasExtra("user")) {
+            mCurrentUser = getIntent().getExtras().getParcelable("user");
+        }
+        if (mCurrentUser == null) {
+            mCurrentUser = new User("Aluane Med",58);
+        }
+        mCurrentUser.setIsUpgraded(true);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
             setSupportActionBar(mToolbar);
@@ -58,7 +64,7 @@ public class MainActivity extends BaseActivity
                 mTitle = getString(R.string.title_section2);
                 break;
             case 3:
-                mTitle = getString(R.string.title_section3);
+                mTitle = getString(R.string.title_section_user);
                 break;
         }
     }

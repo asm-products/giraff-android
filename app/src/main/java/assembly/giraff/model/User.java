@@ -6,24 +6,26 @@ import android.os.Parcelable;
 public class User implements Parcelable {
 
     private String userName;
-    private String userLevel;
+    private int userFavedGifs;
+    private Boolean isUpgraded;
 
-    public User(String name, String level) {
+    public User(String name, int muserFavedGifs) {
         userName = name;
-        userLevel = level;
+        userFavedGifs = muserFavedGifs;
+        this.isUpgraded = false;
     }
 
     public User(Parcel parcel) {
         userName = parcel.readString();
-        userLevel = parcel.readString();
+        userFavedGifs = Integer.valueOf(parcel.readString());
     }
 
     public String getUserName() {
         return userName;
     }
 
-    public String getUserLevel() {
-        return userLevel;
+    public int getUserFavedGifs() {
+        return userFavedGifs;
     }
 
     @Override
@@ -34,7 +36,8 @@ public class User implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(userName);
-        dest.writeString(userLevel);
+        dest.writeString(String.valueOf(userFavedGifs));
+        dest.writeString(String.valueOf(isUpgraded));
     }
 
     public static final Creator<User> CREATOR
@@ -47,4 +50,12 @@ public class User implements Parcelable {
             return new User[size];
         }
     };
+
+    public Boolean IsUpgraded() {
+        return isUpgraded;
+    }
+
+    public void setIsUpgraded(Boolean isUpgraded) {
+        this.isUpgraded = isUpgraded;
+    }
 }
