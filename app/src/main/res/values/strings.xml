@@ -7,10 +7,9 @@
     <string name="favorites">Favorites</string>
     <string name="Change_sett">Change Settings</string>
     <string name="Log_out">Log Out</string>
+    <string name="title_section_user">user card</string>
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
-    <string name="title_section4">Section 4</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="facebook_app_id">1596426743920733</string>

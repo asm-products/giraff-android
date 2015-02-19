@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/gold">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignTop="@+id/user_card_layout"
+        android:layout_alignBottom="@id/user_card_layout"
+        android:layout_alignLeft="@id/user_card_layout"
+        android:layout_alignRight="@id/user_card_layout"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:id="@+id/background"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/user_card_layout">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="80sp"
+            android:layout_height="80sp"
+            android:paddingBottom="20sp"
+            android:layout_marginTop="35dp"
+            android:src="@drawable/ic_derp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/user_avatar"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="User Name"
+            android:id="@+id/user_name"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="99 GIFS SAVED"
+            android:id="@+id/user_faved_gifs"
+            android:paddingBottom="15dp"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+</RelativeLayout>

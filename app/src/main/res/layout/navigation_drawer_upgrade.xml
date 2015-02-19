@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:background="@color/black">
 
     <ImageView
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_alignTop="@+id/user_card_layout"
-        android:layout_alignBottom="@id/user_card_layout"
-        android:layout_alignLeft="@id/user_card_layout"
-        android:layout_alignRight="@id/user_card_layout"
+        android:layout_height="fill_parent"
+        android:layout_alignTop="@+id/upgrade_card_layout"
+        android:layout_alignBottom="@id/upgrade_card_layout"
+        android:layout_alignLeft="@id/upgrade_card_layout"
+        android:layout_alignRight="@id/upgrade_card_layout"
         android:layout_centerInParent="true"
         android:src="@drawable/grumpycat"
         android:adjustViewBounds="true"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:minHeight="150dp"
-        android:id="@+id/user_card_layout"
+        android:id="@+id/upgrade_card_layout"
         android:weightSum="1"
         android:layout_alignParentTop="true">
 
@@ -48,7 +48,7 @@
             android:typeface="normal"
             android:textSize="15sp"
             android:nestedScrollingEnabled="false"
-            android:layout_below="@+id/user_name"
+            android:layout_below="@+id/upgrade_btn"
             android:layout_marginBottom="15sp"
             android:paddingBottom="5sp"
             android:layout_marginTop="30dp"
@@ -57,23 +57,6 @@
             android:clickable="true"
             android:onClick="onSignUp"
             android:layout_gravity="center_horizontal" />
-        <!--<ImageButton
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:id="@+id/button"
-            android:nestedScrollingEnabled="false"
-            android:layout_below="@+id/user_name"
-            android:layout_marginBottom="45sp"
-            android:paddingBottom="5sp"
-            android:layout_marginTop="20dp"
-            android:minHeight="70dp"
-            android:minWidth="98dp"
-            android:background="@null"
-            android:clickable="true"
-            android:src="@drawable/upgrade_menu_btn"
-            android:onClick="onSignUp"
-            android:layout_gravity="center_horizontal" />-->
-
 
     </LinearLayout>
 </RelativeLayout>
