@@ -33,9 +33,10 @@ public class MainActivity extends BaseActivity
             mCurrentUser = getIntent().getExtras().getParcelable("user");
         }
         if (mCurrentUser == null) {
-            mCurrentUser = new User("Aluane Med",58);
+            mCurrentUser = new User("Derp Derpo",58);
         }
-        mCurrentUser.setIsUpgraded(true);
+        //uncomment to show the user card
+        //mCurrentUser.setIsUpgraded(true);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
             setSupportActionBar(mToolbar);
