@@ -4,9 +4,6 @@ package assembly.giraff.model;
  * Created by alouanemed on 09-02-2015.
  */
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
 import assembly.giraff.andtinder.model.CardModel;
@@ -15,13 +12,12 @@ public class CustomCardModel extends CardModel {
 
     private String img_url;
 
-    private OnCardDimissedListener mOnCardDimissedListener = null;
+    private OnCardDismissedListener mOnCardDismissedListener = null;
 
-    private OnClickListener mOnClickListener = null;
+    private OnCardClickListener mOnCardClickListener = null;
 
-
-    public CustomCardModel(String title, String description, String img_url) {
-        super(title, description, (Drawable) null);
+    public CustomCardModel(String title, String img_url) {
+        super(title, (Drawable) null);
         this.img_url = img_url;
     }
 

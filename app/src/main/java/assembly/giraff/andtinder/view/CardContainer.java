@@ -24,12 +24,11 @@ import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 
+import java.util.Random;
 
 import assembly.giraff.R;
 import assembly.giraff.andtinder.model.CardModel;
 import assembly.giraff.andtinder.model.Orientations.Orientation;
-
-import java.util.Random;
 
 public class CardContainer extends AdapterView<ListAdapter> {
 	public static final int INVALID_POINTER_ID = -1;
@@ -64,7 +63,7 @@ public class CardContainer extends AdapterView<ListAdapter> {
 	private ListAdapter mListAdapter;
 	private float mLastTouchX;
 	private float mLastTouchY;
-	private View mTopCard;
+    private View mTopCard;
 	private int mTouchSlop;
 	private int mGravity;
 	private int mNextAdapterPosition;
@@ -248,11 +247,11 @@ public class CardContainer extends AdapterView<ListAdapter> {
 		if (mGestureDetector.onTouchEvent(event)) {
 			return true;
 		}
-		Log.d("Touch Event", MotionEvent.actionToString(event.getActionMasked()) + " ");
-		final int pointerIndex;
-		final float x, y;
-		final float dx, dy;
-		switch (event.getActionMasked()) {
+//		Log.d("Touch Event", MotionEvent.actionToString(event.getActionMasked()) + " ");
+        final int pointerIndex;
+        final float x, y;
+        final float dx, dy;
+        switch (event.getActionMasked()) {
 			case MotionEvent.ACTION_DOWN:
 				mTopCard.getHitRect(childRect);
 
@@ -310,7 +309,7 @@ public class CardContainer extends AdapterView<ListAdapter> {
 				ValueAnimator animator = ObjectAnimator.ofPropertyValuesHolder(mTopCard,
 						PropertyValuesHolder.ofFloat("translationX", 0),
 						PropertyValuesHolder.ofFloat("translationY", 0),
-						PropertyValuesHolder.ofFloat("rotation", (float) Math.toDegrees(mRandom.nextGaussian() * DISORDERED_MAX_ROTATION_RADIANS)),
+						PropertyValuesHolder.ofFloat("rotation", 0),//(float) Math.toDegrees(mRandom.nextGaussian() * DISORDERED_MAX_ROTATION_RADIANS)),
 						PropertyValuesHolder.ofFloat("pivotX", mTopCard.getWidth() / 2.f),
 						PropertyValuesHolder.ofFloat("pivotY", mTopCard.getHeight() / 2.f)
 				).setDuration(250);
@@ -352,7 +351,7 @@ public class CardContainer extends AdapterView<ListAdapter> {
                 CardModel cardModel = (CardModel)getAdapter().getItem(0);
 
                 if (cardModel.getOnClickListener() != null) {
-                   cardModel.getOnClickListener().OnClickListener();
+                    cardModel.getOnClickListener().onCardClick();
                 }
 				pointerIndex = event.getActionIndex();
 				x = event.getX(pointerIndex);
@@ -432,56 +431,66 @@ public class CardContainer extends AdapterView<ListAdapter> {
 			if (Math.abs(dx) > mTouchSlop &&
 					Math.abs(velocityX) > Math.abs(velocityY) &&
 					Math.abs(velocityX) > mFlingSlop * 3) {
-				float targetX = topCard.getX();
-				float targetY = topCard.getY();
-				long duration = 0;
+                missCard(velocityX, velocityY, topCard);
+                return true;
+            } else
+                return false;
+        }
+    }
 
-				boundsRect.set(0 - topCard.getWidth() - 100, 0 - topCard.getHeight() - 100, getWidth() + 100, getHeight() + 100);
+    public void missCard(float velocityX, float velocityY, final View topCard) {
+        if (topCard == null) return;
+        float targetX = topCard.getX();
+        float targetY = topCard.getY();
+        long duration = 0;
 
-				while (boundsRect.contains((int) targetX, (int) targetY)) {
-					targetX += velocityX / 10;
-					targetY += velocityY / 10;
-					duration += 100;
-				}
+        boundsRect.set(0 - topCard.getWidth() - 100, 0 - topCard.getHeight() - 100, getWidth() + 100, getHeight() + 100);
 
-				duration = Math.min(500, duration);
+        while (boundsRect.contains((int) targetX, (int) targetY)) {
+            targetX += velocityX / 10;
+            targetY += velocityY / 10;
+            duration += 100;
+        }
 
-				mTopCard = getChildAt(getChildCount() - 2);
-                CardModel cardModel = (CardModel)getAdapter().getItem(0);
+        duration = Math.min(500, duration);
 
-				if(mTopCard != null)
-					mTopCard.setLayerType(LAYER_TYPE_HARDWARE, null);
+        mTopCard = getChildAt(getChildCount() - 2);
+        CardModel cardModel = (CardModel) getAdapter().getItem(0);
 
-                if (cardModel.getOnCardDimissedListener() != null) {
-                    if ( targetX > 0 ) {
-                        cardModel.getOnCardDimissedListener().onDislike();
-                    } else {
-                        cardModel.getOnCardDimissedListener().onLike();
+        if (mTopCard != null)
+            mTopCard.setLayerType(LAYER_TYPE_HARDWARE, null);
+
+        if (cardModel.getOnCardDismissedListener() != null) {
+            if (targetX > 0) {
+                cardModel.getOnCardDismissedListener().onDislike();
+            } else {
+                cardModel.getOnCardDismissedListener().onLike();
+            }
+        }
+
+        topCard.animate()
+                .setDuration(duration)
+                .alpha(.75f)
+                .setInterpolator(new LinearInterpolator())
+                .x(targetX)
+                .y(targetY)
+                .rotation(Math.copySign(45, velocityX))
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        removeViewInLayout(topCard);
+                        ensureFull();
                     }
-                }
 
-				topCard.animate()
-						.setDuration(duration)
-						.alpha(.75f)
-						.setInterpolator(new LinearInterpolator())
-						.x(targetX)
-						.y(targetY)
-						.rotation(Math.copySign(45, velocityX))
-						.setListener(new AnimatorListenerAdapter() {
-							@Override
-							public void onAnimationEnd(Animator animation) {
-								removeViewInLayout(topCard);
-								ensureFull();
-							}
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+                        onAnimationEnd(animation);
+                    }
+                });
+    }
 
-							@Override
-							public void onAnimationCancel(Animator animation) {
-								onAnimationEnd(animation);
-							}
-						});
-				return true;
-			} else
-				return false;
-		}
-	}
+    public View getTopCard() {
+        return mTopCard;
+    }
+
 }

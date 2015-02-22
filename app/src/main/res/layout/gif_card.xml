@@ -1,124 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/global_container"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/image_title"
-        style="@android:style/TextAppearance.Large.Inverse"
-        android:textColor="@android:color/primary_text_light"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-condensed"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/card_bg"
-        tools:text="Title"
-        android:padding="10dp"/>
-
-    <View
-        android:id="@+id/divider_title"
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_below="@id/image_title"
-        android:background="@color/card_outline"
-        />
+        android:layout_alignParentBottom="true"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="30dp"
+        android:textSize="20dp"
+        android:id="@+id/title"
+        android:text="Mr. Fun Kitty" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitCenter"
-        android:layout_below="@id/divider_title"
-        android:layout_alignWithParentIfMissing="true"
+        android:layout_above="@id/title"
         android:src="@drawable/ic_launcher"
-        android:id="@+id/image_gif"
-        />
-
-<!--
-
-    <com.felipecsl.gifimageview.library.GifImageView
-        android:id="@+id/image_gif"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
-        android:layout_below="@id/divider_title"
-        android:layout_alignWithParentIfMissing="true"
-        />
--->
-
-    <View
-        android:id="@+id/divider_bottom"
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_below="@id/image_gif"
-        android:background="@color/card_outline" />
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="10dp"
-        android:layout_alignBottom="@+id/image_1"
-        android:layout_below="@+id/divider_bottom"
-        android:background="@color/card_bg"
-        />
-
-    <TextView
-        android:id="@+id/image_description"
-        style="@android:style/TextAppearance.Inverse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/image_2"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/image_gif"
-        android:layout_toLeftOf="@+id/btn_sep_1"
-        android:gravity="center_vertical"
-        android:fontFamily="sans-serif-condensed"
-        android:ellipsize="end"
-        android:padding="10dp"
-        android:lines="1"
-        android:textColor="@android:color/secondary_text_light"
-        tools:text="This is the description, gs you can see"/>
-
-    <View
-        android:id="@+id/btn_sep_1"
-        android:layout_width="1dp"
-        android:layout_height="0dp"
-        android:layout_alignBottom="@+id/image_1"
-        android:layout_below="@id/image_gif"
-        android:layout_marginTop="7dp"
-        android:layout_toLeftOf="@+id/image_1"
-        android:background="#ccc"/>
-
-    <ImageButton
-        android:id="@+id/image_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/image_gif"
-        android:layout_toLeftOf="@+id/btn_sep_2"
-        android:background="?android:attr/selectableItemBackground"
-        android:padding="10dp"
-        android:src="@drawable/ic_launcher"/>
-
-    <View
-        android:id="@+id/btn_sep_2"
-        android:layout_width="1dp"
-        android:layout_height="0dp"
-        android:layout_alignBottom="@id/image_1"
-        android:layout_below="@id/image_gif"
-        android:layout_marginTop="7dp"
-        android:layout_toLeftOf="@+id/image_2"
-        android:background="#ccc"/>
-
-    <ImageButton
-        android:id="@+id/image_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/image_gif"
-        android:background="?android:attr/selectableItemBackground"
-        android:padding="10dp"
-        android:src="@drawable/ic_launcher"/>
+        android:id="@+id/image_gif" />
 
 </RelativeLayout>
