@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="assembly.giraff.UpgradeActivity"
+    android:background="@drawable/grumpycathappy"
+    >
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:background="@color/gold"
+        android:alpha="0.8"
+        android:layout_alignParentTop="true">
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="THANKS FOR"
+            android:textColor="@color/black"
+            android:layout_marginTop="120dp"
+            android:id="@+id/text_thanks"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="UPGRADING"
+            android:textColor="@color/black"
+            android:id="@+id/text_thanks2"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_height="50dp"
+            android:id="@+id/start_gif_btn"
+            android:layout_width="229dp"
+            android:text="@string/start_gif_msg"
+            android:background="@drawable/round_corner_gray"
+            android:textColor="@color/gold"
+            android:typeface="normal"
+            android:textSize="15sp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:layout_alignParentBottom="true"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginBottom="15sp"
+            android:paddingBottom="5sp"
+            android:layout_marginTop="60dp"
+            android:minHeight="30dp"
+            android:minWidth="68dp"
+            android:clickable="true"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+</RelativeLayout>
