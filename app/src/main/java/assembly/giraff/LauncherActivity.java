@@ -1,11 +1,16 @@
 package assembly.giraff;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+
+import com.facebook.widget.LoginButton;
 
 import assembly.giraff.facebook.FacebookActivity;
 
@@ -16,6 +21,18 @@ public class LauncherActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Button facebook = (Button)findViewById(R.id.facebookButton);
+                facebook.setVisibility(View.VISIBLE);
+                Button mainActivity = (Button)findViewById(R.id.mainButton);
+                mainActivity.setVisibility(View.VISIBLE);
+                RelativeLayout layout = (RelativeLayout)findViewById(R.id.launcherLayout);
+                layout.setBackground(null);
+            }
+        }, 1000);
     }
 
     public void facebook(View view){
