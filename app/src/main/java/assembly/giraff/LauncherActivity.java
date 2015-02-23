@@ -32,7 +32,7 @@ public class LauncherActivity extends ActionBarActivity {
                 RelativeLayout layout = (RelativeLayout)findViewById(R.id.launcherLayout);
                 layout.setBackground(null);
             }
-        }, 1000);
+        }, 7000);
     }
 
     public void facebook(View view){
