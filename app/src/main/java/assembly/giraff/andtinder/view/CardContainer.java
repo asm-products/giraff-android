@@ -24,87 +24,88 @@ import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 
-import java.util.Random;
 
 import assembly.giraff.R;
 import assembly.giraff.andtinder.model.CardModel;
 import assembly.giraff.andtinder.model.Orientations.Orientation;
 
+import java.util.Random;
+
 public class CardContainer extends AdapterView<ListAdapter> {
-	public static final int INVALID_POINTER_ID = -1;
-	private int mActivePointerId = INVALID_POINTER_ID;
-	private static final double DISORDERED_MAX_ROTATION_RADIANS = Math.PI / 64;
+    public static final int INVALID_POINTER_ID = -1;
+    private int mActivePointerId = INVALID_POINTER_ID;
+    private static final double DISORDERED_MAX_ROTATION_RADIANS = Math.PI / 64;
     private int mNumberOfCards = -1;
-	private final DataSetObserver mDataSetObserver = new DataSetObserver() {
-		@Override
-		public void onChanged() {
-			super.onChanged();
-			clearStack();
-			ensureFull();
-		}
+    private final DataSetObserver mDataSetObserver = new DataSetObserver() {
+        @Override
+        public void onChanged() {
+            super.onChanged();
+            clearStack();
+            ensureFull();
+        }
 
-		@Override
-		public void onInvalidated() {
-			super.onInvalidated();
-			clearStack();
-		}
-	};
-	private final Random mRandom = new Random();
-	private final Rect boundsRect = new Rect();
-	private final Rect childRect = new Rect();
-	private final Matrix mMatrix = new Matrix();
+        @Override
+        public void onInvalidated() {
+            super.onInvalidated();
+            clearStack();
+        }
+    };
+    private final Random mRandom = new Random();
+    private final Rect boundsRect = new Rect();
+    private final Rect childRect = new Rect();
+    private final Matrix mMatrix = new Matrix();
 
 
-	//TODO: determine max dynamically based on device speed
-	private int mMaxVisible = 10;
-	private GestureDetector mGestureDetector;
-	private int mFlingSlop;
-	private Orientation mOrientation;
-	private ListAdapter mListAdapter;
-	private float mLastTouchX;
-	private float mLastTouchY;
+    //TODO: determine max dynamically based on device speed
+    private int mMaxVisible = 10;
+    private GestureDetector mGestureDetector;
+    private int mFlingSlop;
+    private Orientation mOrientation;
+    private ListAdapter mListAdapter;
+    private float mLastTouchX;
+    private float mLastTouchY;
     private View mTopCard;
-	private int mTouchSlop;
-	private int mGravity;
-	private int mNextAdapterPosition;
-	private boolean mDragging;
+    private int mTouchSlop;
+    private int mGravity;
+    private int mNextAdapterPosition;
+    private boolean mDragging;
 
-	public CardContainer(Context context) {
-		super(context);
+    public CardContainer(Context context) {
+        super(context);
 
         setOrientation(Orientation.Disordered);
-		setGravity(Gravity.CENTER);
-		init();
+        setGravity(Gravity.CENTER);
+        init();
 
-	}
+    }
 
-	public CardContainer(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		initFromXml(attrs);
-		init();
-	}
+    public CardContainer(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initFromXml(attrs);
+        init();
+    }
 
 
-	public CardContainer(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-		initFromXml(attrs);
-		init();
-	}
+    public CardContainer(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        initFromXml(attrs);
+        init();
+    }
 
-	private void init() {
-		ViewConfiguration viewConfiguration = ViewConfiguration.get(getContext());
-		mFlingSlop = viewConfiguration.getScaledMinimumFlingVelocity();
-		mTouchSlop = viewConfiguration.getScaledTouchSlop();
-		mGestureDetector = new GestureDetector(getContext(), new GestureListener());
-	}
+    private void init() {
+        ViewConfiguration viewConfiguration = ViewConfiguration.get(getContext());
+        mFlingSlop = viewConfiguration.getScaledMinimumFlingVelocity();
+        mTouchSlop = viewConfiguration.getScaledTouchSlop();
+        mGestureDetector = new GestureDetector(getContext(), new GestureListener());
+    }
 
-	private void initFromXml(AttributeSet attr) {
-		TypedArray a = getContext().obtainStyledAttributes(attr,
+    private void initFromXml(AttributeSet attr) {
+        TypedArray a = getContext().obtainStyledAttributes(attr,
                 R.styleable.CardContainer);
 
-		setGravity(a.getInteger(R.styleable.CardContainer_android_gravity, Gravity.CENTER));
-		int orientation = a.getInteger(R.styleable.CardContainer_orientation, 1);
-		setOrientation(Orientation.fromIndex(orientation));
+        setGravity(a.getInteger(R.styleable.CardContainer_android_gravity, Gravity.CENTER));
+        int orientation = a.getInteger(R.styleable.CardContainer_orientation, 1);
+        setOrientation(Orientation.fromIndex(orientation));
 
 		a.recycle();
 	}
