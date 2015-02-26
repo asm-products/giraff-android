@@ -3,10 +3,12 @@ package assembly.giraff;
 import android.app.Activity;
 import android.content.Context;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,8 +23,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import assembly.giraff.model.User;
 
 
-public class NavigationDrawerListAdapter extends ArrayAdapter<String> {
+public class NavigationDrawerListAdapter extends ArrayAdapter<String> implements View.OnClickListener {
     private Activity parentContext;
+    Button UpgradeDrwBtn;
 
     public NavigationDrawerListAdapter(Context context, int resource, String[] objects) {
         super(context, resource, objects);
@@ -41,6 +44,8 @@ public class NavigationDrawerListAdapter extends ArrayAdapter<String> {
                     if (!userData.IsUpgraded()) {
                         convertView = inflater.inflate(R.layout.navigation_drawer_upgrade, parent,
                                 false);
+                        UpgradeDrwBtn = (Button)convertView.findViewById(R.id.invite_upgrade_button);
+                        UpgradeDrwBtn.setOnClickListener(this);
                     }else{
                         convertView = inflater.inflate(R.layout.null_item, parent,
                                 false);
@@ -110,5 +115,13 @@ public class NavigationDrawerListAdapter extends ArrayAdapter<String> {
         }
 
         return convertView;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.invite_upgrade_button){
+            parentContext.startActivity(new Intent(parentContext,UpgradeActivity.class));
+        }
+
     }
 }

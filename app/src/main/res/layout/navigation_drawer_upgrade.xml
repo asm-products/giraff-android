@@ -42,7 +42,7 @@
             android:layout_width="129dp"
             android:layout_height="wrap_content"
             android:text="Upgrade"
-            android:id="@+id/button"
+            android:id="@+id/invite_upgrade_button"
             android:background="#eab621"
             android:textColor="#ffffffff"
             android:typeface="normal"
@@ -55,7 +55,6 @@
             android:minHeight="30dp"
             android:minWidth="68dp"
             android:clickable="true"
-            android:onClick="onSignUp"
             android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
