@@ -10,5 +10,7 @@
     <color name="card_outline">#D0D0CE</color>
     <color name="gold">#E8C247</color>
     <color name="black">#000000</color>
-
+    <color name="yellow">#fcd251</color>
+    <color name="primary">#1f1f1f</color>
+    <color name="secondary">#2e2e2e</color>
 </resources>

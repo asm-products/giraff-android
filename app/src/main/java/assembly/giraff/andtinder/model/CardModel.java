@@ -17,7 +17,6 @@
 
 package assembly.giraff.andtinder.model;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -25,37 +24,32 @@ import android.graphics.drawable.Drawable;
 public class CardModel {
 
 	private String   title;
-	private String   description;
 	private Drawable cardImageDrawable;
-	private Drawable cardLikeImageDrawable;
-	private Drawable cardDislikeImageDrawable;
 
-    private OnCardDimissedListener mOnCardDimissedListener = null;
+    private OnCardDismissedListener mOnCardDismissedListener = null;
 
-    private OnClickListener mOnClickListener = null;
+    private OnCardClickListener mOnCardClickListener = null;
 
-    public interface OnCardDimissedListener {
+    public interface OnCardDismissedListener {
         void onLike();
         void onDislike();
     }
 
-    public interface OnClickListener {
-        void OnClickListener();
+    public interface OnCardClickListener {
+        void onCardClick();
     }
 
 	public CardModel() {
-		this(null, null, (Drawable)null);
+		this(null, (Drawable)null);
 	}
 
-	public CardModel(String title, String description, Drawable cardImage) {
+	public CardModel(String title, Drawable cardImage) {
 		this.title = title;
-		this.description = description;
 		this.cardImageDrawable = cardImage;
 	}
 
-	public CardModel(String title, String description, Bitmap cardImage) {
+	public CardModel(String title, Bitmap cardImage) {
 		this.title = title;
-		this.description = description;
 		this.cardImageDrawable = new BitmapDrawable(null, cardImage);
 	}
 
@@ -67,13 +61,6 @@ public class CardModel {
 		this.title = title;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
 	public Drawable getCardImageDrawable() {
 		return cardImageDrawable;
@@ -83,36 +70,20 @@ public class CardModel {
 		this.cardImageDrawable = cardImageDrawable;
 	}
 
-	public Drawable getCardLikeImageDrawable() {
-		return cardLikeImageDrawable;
-	}
-
-	public void setCardLikeImageDrawable(Drawable cardLikeImageDrawable) {
-		this.cardLikeImageDrawable = cardLikeImageDrawable;
-	}
-
-	public Drawable getCardDislikeImageDrawable() {
-		return cardDislikeImageDrawable;
-	}
-
-	public void setCardDislikeImageDrawable(Drawable cardDislikeImageDrawable) {
-		this.cardDislikeImageDrawable = cardDislikeImageDrawable;
-	}
-
-    public void setOnCardDimissedListener( OnCardDimissedListener listener ) {
-        this.mOnCardDimissedListener = listener;
+    public void setOnCardDismissedListener(OnCardDismissedListener listener) {
+        this.mOnCardDismissedListener = listener;
     }
 
-    public OnCardDimissedListener getOnCardDimissedListener() {
-       return this.mOnCardDimissedListener;
+    public OnCardDismissedListener getOnCardDismissedListener() {
+       return this.mOnCardDismissedListener;
     }
 
 
-    public void setOnClickListener( OnClickListener listener ) {
-        this.mOnClickListener = listener;
+    public void setOnClickListener( OnCardClickListener listener ) {
+        this.mOnCardClickListener = listener;
     }
 
-    public OnClickListener getOnClickListener() {
-        return this.mOnClickListener;
+    public OnCardClickListener getOnClickListener() {
+        return this.mOnCardClickListener;
     }
 }

@@ -1,13 +1,11 @@
 package assembly.giraff;
 
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import assembly.giraff.facebook.FacebookFragment;
 import assembly.giraff.model.User;
 
 
@@ -27,7 +25,7 @@ public class MainActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_main_view);
+        setContentView(R.layout.main_activity);
 
         if (getIntent().hasExtra("user")) {
             mCurrentUser = getIntent().getExtras().getParcelable("user");
@@ -40,6 +38,9 @@ public class MainActivity extends BaseActivity
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
             setSupportActionBar(mToolbar);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            getSupportActionBar().setTitle("");
+            mToolbar.setNavigationIcon(R.drawable.ic_menu);
         }
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
@@ -71,7 +72,7 @@ public class MainActivity extends BaseActivity
     }
 
     public void restoreActionBar() {
-        mToolbar.setTitle(mTitle);
+//        mToolbar.setTitle(mTitle);
     }
 
 
@@ -108,4 +109,7 @@ public class MainActivity extends BaseActivity
         return mCurrentUser;
     }
 
+    public Toolbar getToolbar() {
+        return mToolbar;
+    }
 }
