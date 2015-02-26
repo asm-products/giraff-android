@@ -20,17 +20,18 @@
             <ImageView
                 android:layout_width="85dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageView2"
+                android:id="@+id/iv_cancel_upgrade"
                 android:src="@drawable/ic_close_black_2"
                 android:layout_gravity="right"
+                android:clickable="true"
                 android:layout_weight="0.19" />
 
             <ImageView
                 android:layout_width="299dp"
                 android:layout_height="58dp"
                 android:id="@+id/imageView"
-                android:src="@drawable/ic_star_gold"
-                android:layout_weight="1.16"
+                android:src="@drawable/star_upgrading"
+                android:layout_weight="1.99"
                 android:layout_gravity="center_horizontal" />
         </LinearLayout>
 

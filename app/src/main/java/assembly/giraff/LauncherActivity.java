@@ -36,14 +36,11 @@ public class LauncherActivity extends ActionBarActivity {
     }
 
     public void facebook(View view){
-        Intent intent = new Intent(this, FacebookActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, FacebookActivity.class));
     }
 
     public void activity(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-
+        startActivity(new Intent(this, MainActivity.class));
     }
 
 
