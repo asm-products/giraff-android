@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="200dp"
+            android:background="@color/gold"
+            android:layout_gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/iv_cancel_upgrade"
+                android:src="@drawable/ic_close_black_2"
+                android:layout_gravity="right"
+                android:clickable="true"
+                android:layout_weight="0.19" />
+
+            <ImageView
+                android:layout_width="299dp"
+                android:layout_height="58dp"
+                android:id="@+id/imageView"
+                android:src="@drawable/star_upgrading"
+                android:layout_weight="1.99"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OOPS , SO SORRY !"
+                android:textSize="30dp"
+                android:textColor="@color/gold"
+                android:id="@+id/textView"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/upgrade_msg"
+                android:id="@+id/textView2"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/upgrade_msg2"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:id="@+id/textView3"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/upgrade_msg3"
+                android:id="@+id/textView4"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/upgrade_msg4"
+                android:id="@+id/textView5"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+
+        <Button
+            android:layout_height="50dp"
+            android:id="@+id/upgrade_btn_action"
+            android:layout_width="229dp"
+            android:text="@string/upgrade_btn_text"
+            android:background="@drawable/round_corner"
+            android:textColor="@color/black"
+            android:typeface="normal"
+            android:textSize="15sp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:layout_alignParentBottom="true"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginBottom="15sp"
+            android:paddingBottom="5sp"
+            android:layout_marginTop="50dp"
+            android:minHeight="30dp"
+            android:minWidth="68dp"
+            android:clickable="true"
+            android:layout_gravity="center_horizontal" />
+
+
+        </LinearLayout>
+</ScrollView>
