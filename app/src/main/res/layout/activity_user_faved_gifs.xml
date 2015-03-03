@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/LLtopics"
+        android:id="@+id/LLFavedgifs"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -21,9 +21,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title_user_faved_gifs"
-                android:id="@+id/Topics_Next"
                 android:src="@drawable/ic_star_gold"
-                android:layout_below="@+id/inctopicslistv"
+                android:layout_below="@+id/favedgifslist"
                 android:typeface="normal"
                 android:layout_marginTop="5dp"
                 android:minHeight="30dp"
@@ -47,7 +46,7 @@
         </LinearLayout>
 
         <include
-            android:id="@+id/inctopicslistv"
+            android:id="@+id/favedgifslist"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             layout="@layout/favedgifs_grid"/>
