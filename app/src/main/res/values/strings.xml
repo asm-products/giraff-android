@@ -23,5 +23,7 @@
     <string name="title_activity_upgrade">UpgradeActivity</string>
     <string name="start_gif_msg">START GIFFING !</string>
     <string name="title_activity_upgrade_success">UpgradeSuccessActivity</string>
+    <string name="title_activity_user_faved_gifs">UserFavedGifsActivity</string>
+    <string name="title_user_faved_gifs">Faved Gifs</string>
 
 </resources>
