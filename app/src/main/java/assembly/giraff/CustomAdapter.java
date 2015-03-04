@@ -1,12 +1,16 @@
 package assembly.giraff;
 
 import android.content.Context;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.koushikdutta.ion.Ion;
 
@@ -30,7 +34,8 @@ public final class CustomAdapter extends CardStackAdapter {
 
     public static class ViewHolder {
         public TextView card_Title;
-        public ImageView gifImageView;
+        //public ImageView gifImageView;
+        public VideoView MP4PlayerView;
     }
 
 
@@ -44,7 +49,8 @@ public final class CustomAdapter extends CardStackAdapter {
 
             holder = new ViewHolder();
             holder.card_Title = (TextView) convertView.findViewById(R.id.title);
-            holder.gifImageView = (ImageView) convertView.findViewById(R.id.image_gif);
+            //holder.gifImageView = (ImageView) convertView.findViewById(R.id.image_gif);
+            holder.MP4PlayerView = (VideoView) convertView.findViewById(R.id.gif_player);
 
             convertView.setTag(holder);
         } else {
@@ -58,12 +64,43 @@ public final class CustomAdapter extends CardStackAdapter {
             holder.card_Title.setVisibility(View.GONE);
         }
 
-        Ion.with(getContext())
+        if (!TextUtils.isEmpty(model.getImg_url())) {
+
+            String link=model.getImg_url() ;
+            MediaController mediaController = new MediaController(getContext());
+            mediaController.setAnchorView(holder.MP4PlayerView);
+            Uri video = Uri.parse(link);
+            int height = holder.MP4PlayerView.getHeight();
+            int width = holder.MP4PlayerView.getWidth();
+            holder.MP4PlayerView.setMinimumWidth(width);
+            holder.MP4PlayerView.setMinimumHeight(height);
+
+            holder.MP4PlayerView.setMediaController(mediaController);
+            holder.MP4PlayerView.setVideoURI(video);
+            holder.MP4PlayerView.setZOrderOnTop(false);
+
+
+            holder.MP4PlayerView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    System.out.println("onPrepared");
+                    mp.setLooping(true);
+
+                }
+            });
+
+            holder.MP4PlayerView.setVisibility(View.VISIBLE);
+        } else {
+            holder.MP4PlayerView.setVisibility(View.GONE);
+        }
+
+
+        /*Ion.with(getContext())
                 .load(model.getImg_url())
                 .withBitmap()
                 .placeholder(R.drawable.ic_launcher)
                 .error(R.drawable.dislike)
-                .intoImageView(holder.gifImageView);
+                .intoImageView(holder.gifImageView);*/
 
         return convertView;
     }

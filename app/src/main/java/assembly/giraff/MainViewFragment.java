@@ -34,11 +34,12 @@ public class MainViewFragment extends Fragment implements View.OnClickListener {
 
         CustomAdapter adapter = new CustomAdapter(getActivity());
 
-        adapter.add(new CustomCardModel("Title1", "http://gifs.joelglovier.com/accidents/wheelbarrel-dump.gif"));
-        adapter.add(new CustomCardModel("Long Long Long Long Long Very Long Long Long Title2", "http://gifs.joelglovier.com/fail/cat-fail.gif"));
-        adapter.add(new CustomCardModel("Title3", "http://gifs.joelglovier.com/aha/aha.gif"));
+        adapter.add(new CustomCardModel("Title1", "http://i.imgur.com/YUmYpm1.mp4"));
+        adapter.add(new CustomCardModel("Sit down",  "http://i.imgur.com/2gI1uhm.mp4"));
+        adapter.add(new CustomCardModel("Internet Maintenance ", "http://i.imgur.com/c6UZmoD.mp4"));
 
-        CustomCardModel cardModel = new CustomCardModel("Title3", "http://gifs.joelglovier.com/big-lebowski/no-huh-uh.gif");
+        CustomCardModel cardModel = new CustomCardModel("Original nope", "http://i.imgur.com/c6UZmoD.mp4");
+        CardModel c = (CardModel) adapter.getItem(0);
         cardModel.setOnClickListener(new CardModel.OnCardClickListener() {
             @Override
             public void onCardClick() {

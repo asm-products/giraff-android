@@ -4,7 +4,10 @@
     android:layout_height="match_parent"
     android:background="@color/secondary"
     tools:context="assembly.giraff.MainViewFragment$PlaceholderFragment">
-
+    <SurfaceView
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:visibility="gone" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,6 +46,11 @@
             android:clickable="true" />
 
     </LinearLayout>
+
+    <SurfaceView
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:visibility="gone" />
 
     <assembly.giraff.andtinder.view.CardContainer
         android:id="@+id/card_container"
