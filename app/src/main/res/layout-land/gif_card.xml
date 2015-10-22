@@ -23,12 +23,20 @@
         android:id="@+id/border"
         android:background="#ccc" />
 
-    <ImageView
+    <VideoView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitCenter"
         android:layout_above="@id/title"
         android:src="@drawable/ic_launcher"
-        android:id="@+id/image_gif" />
+        android:id="@+id/gif_player" />
+
+    <!--<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:layout_above="@id/title"
+        android:src="@drawable/ic_launcher"
+        android:id="@+id/image_gif" />-->
 
 </RelativeLayout>
